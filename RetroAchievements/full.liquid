@@ -1,0 +1,52 @@
+<div class="grid grid-cols 4">
+  <div class="col--span-1">
+    <p class="text--left">
+      <strong>{{IDX_0.User}}</strong>
+    </p>
+  </div>
+
+  <div class="col--span-3">
+    <p class="text--right clamp--1">
+      {{IDX_0.RichPresenceMsg}}
+    </p>
+  </div>
+</div>
+
+<div class="grid grid--cols-2">
+  <!-- Bottom Left Column -->
+  <div>
+    <p>
+      <span class="title">{{IDX_1.LastGame.Title}}</span>
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Field</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+        <td>Cell 1</td>
+        <td>Cell 2</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bottom Right Column -->
+  <div>
+    <p>
+      <span class="title">Latest Achievements</span>
+    </p>
+
+    
+  </div>
+</div>
+
+<div class="title_bar">
+  <img class="image image-stroke" src="https://static.retroachievements.org/assets/images/ra-icon.webp">
+  <span class="title">RetroAchievements</span>
+  <span class="instance">{{trmnl.system.timestamp_utc | date: "%d %b %Y"}}</span>
+</div>

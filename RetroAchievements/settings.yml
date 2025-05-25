@@ -1,0 +1,18 @@
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+polling_url: "https://retroachievements.org/API/API_GetUserProfile.php?y={{api_key}}&u={{username}}\r\nhttps://retroachievements.org/API/API_GetUserSummary.php?y={{api_key}}&u={{username}}&g=2&a=10\r\nhttps://retroachievements.org/API/API_GetUserPoints.php?y={{api_key}}&u={{username}}\r\nhttps://retroachievements.org/API/API_GetUserRecentlyPlayedGames.php?y={{api_key}}&u={{username}}&c=2"
+polling_headers: ''
+id: 73238
+custom_fields:
+- keyname: api_key
+  field_type: string
+  name: API Key
+- keyname: username
+  field_type: string
+  name: Username
+name: RetroAchievements
+refresh_interval: 60
