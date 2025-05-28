@@ -1,52 +1,41 @@
-<div class="grid grid-cols 4">
-  <div class="col--span-1">
-    <p class="text--left">
-      <strong>{{IDX_0.User}}</strong>
-    </p>
+<div class="layout layout--row">
+<div class="flex flex--stretch">
+  <div class="flex--col">
+    <div class="richtext richtext--left">
+      <img class="image-dither" src="https://retroachievements.org{{ IDX_0.LastGame.ImageIcon }}" style="float: left"/>
+      <p class="title">{{ IDX_0.LastGame.Title }}</p>
+      <div class="content content--left gap text--left">
+        <p>{{ IDX_0.LastGame.ConsoleName }}</p>
+        <p>Multiple paragraphs will maintain the same alignment.</p>
+      </div>
+    </div>
   </div>
-
-  <div class="col--span-3">
-    <p class="text--right clamp--1">
-      {{IDX_0.RichPresenceMsg}}
-    </p>
+  <div class="flex--col" data-list-limit="true" data-list-max-height="410">
+    <!-- Iterate through each game and display text for each achievement -->
+    {% for game in IDX_0.RecentAchievements %}
+      {% for achievement in IDX_0.RecentAchievements[game[0]] %}
+        <div class="item">
+          <div class="meta"></div>
+          <div class="content">
+            <span class="title">{{ achievement[1].Title }}</span>
+            <span class="description clamp--5">{{ achievement[1].Description }}</span>
+            <div class="flex gap--small">
+              {% if achievement[1].Points >= 25 %}
+              <span class="label label--small label--inverted">{{ achievement[1].Points }}</span>
+              {% else %}
+              <span class="label label--small label--outline">{{ achievement[1].Points }}</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endfor %}
   </div>
 </div>
-
-<div class="grid grid--cols-2">
-  <!-- Bottom Left Column -->
-  <div>
-    <p>
-      <span class="title">{{IDX_1.LastGame.Title}}</span>
-    </p>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Field</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-        <td>Cell 1</td>
-        <td>Cell 2</td>
-          </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Bottom Right Column -->
-  <div>
-    <p>
-      <span class="title">Latest Achievements</span>
-    </p>
-
-    
-  </div>
 </div>
 
 <div class="title_bar">
   <img class="image image-stroke" src="https://static.retroachievements.org/assets/images/ra-icon.webp">
-  <span class="title">RetroAchievements</span>
-  <span class="instance">{{trmnl.system.timestamp_utc | date: "%d %b %Y"}}</span>
+  <span class="title clamp--none">{{ IDX_0.User }}</span>
+  <span class="text--right text-stroke clamp--1">{{ IDX_0.RichPresenceMsg }}</span>
 </div>
